@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>Комбинированная навигация сельскохозяйственной техники</title>
+
+<script src="index_files/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+
+
+<!--
+Font-awesome icons ie github or twitter
+-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+
+<!--
+Google fonts api stuff
+-->
+<link href='https://fonts.googleapis.com/css?family=Special Elite' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Arial' rel='stylesheet'>
+
+<!--
+Here are the required style attributes for css to make this poster work :)
+-->
+<style>
+@page {
+size: 36in 48in;
+margin: 0;
+padding: 0;
+}
+body {
+margin: 0px;
+padding: 0px;
+width: 36in;
+height: 48in;
+text-align: justify;
+font-size: 70px;
+line-height: 1.05;
+}
+/* RMarkdown Class Styles */
+/* center align leaflet map,
+from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
+.html-widget {
+margin: auto;
+position: sticky;
+margin-top: 2cm;
+margin-bottom: 2cm;
+}
+.leaflet.html-widget.html-widget-static-bound.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom {
+position: sticky;
+width: 100%;
+}
+pre.sourceCode.r {
+background-color: #dddddd40;
+border-radius: 4mm;
+padding: 4mm;
+width: 75%;
+margin: auto;
+margin-top: 1em;
+margin-bottom: 1em;
+/* align-items: center; */
+}
+code.sourceCode.r{
+background-color: transparent;
+font-size: 20pt;
+border-radius: 2mm;
+}
+code {
+font-size: 25pt;
+font-family: monospace;
+background-color: #05259624;
+color: #052555;
+padding: 1.2mm;
+line-height: 1;
+border-radius: 2mm;
+}
+caption {
+margin-bottom: 10px;
+font-size: 20pt;
+font-style: italic;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #05259620;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+  border-spacing: 0;
+  font-size: 40%;
+  border-style: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 1em;
+  padding-left: 1em;
+  line-height: 1em;
+}
+table {
+  margin: auto;
+}
+th {
+  padding-left: 5mm;
+  padding-right: 5mm;
+}
+.caption {
+font-size: 20pt;
+font-style: italic;
+padding-top: 0;
+}
+.references {
+font-size: 20px;
+line-height: 90%;
+}
+/* Create three unequal columns that floats next to each other */
+.column {
+float: left;
+padding: 0px;
+}
+.outer {
+width: 36in;
+height: calc(48in *  (1 - 0.3 - 0.1 - 0.01) );
+-webkit-column-count: 3; /* Chrome, Safari, Opera */
+-moz-column-count: 3; /* Firefox */
+column-count: 3;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+column-gap: 0;
+padding-left: 0cm;
+padding-right: 0cm;
+/* -webkit-column-rule-width: 50%;
+-moz-column-rule-width: 50%;
+column-rule-width: 50%; */
+-webkit-column-rule-style: none;
+-moz-column-rule-style: none;
+column-rule-style: none;
+-webkit-column-rule-color: black;
+-moz-column-rule-color: black;
+column-rule-color: black;
+background-color: #ffffff;
+font-family: Arial;
+margin-top: calc(48in *  0.3 );
+padding-top: 1em;
+padding-bottom: 1em;
+}
+span.citation {
+  color: #052596;
+  font-weight: bold;
+}
+a {
+text-decoration: none;
+color: #052596;
+}
+#title {
+font-size: 70pt;
+text-align: left;
+margin: 0;
+line-height: 98%;
+border-bottom: 0;
+font-weight: normal;
+background: 0;
+}
+#author {
+color: #052555;
+margin: 0;
+line-height: 85%;
+font-size: 1.37em;
+}
+#affiliation {
+padding-top: 0.1em;
+color: ;
+font-style: italic;
+font-size: 65px;
+margin: 0;
+}
+sup {
+color: #cc0000;
+}
+.affiliation sup {
+font-size: 20px;
+}
+.author {
+text-align: left;
+}
+.author sup {
+font-size: 30px;
+}
+.author_extra {
+color: #052596;
+margin: 0;
+line-height: 85%;
+font-size: 65px;
+text-align: left;
+}
+.outer h1, h2, h3, h4, h5, h6 {
+text-align: center;
+margin: 0;
+font-weight: bold;
+}
+.section h1 {
+  text-align:center;
+  padding-bottom:5px;
+  background:
+    linear-gradient(
+      to left,
+      #ffffff 1%,
+      #ffffff 20%,
+      #05255575 33%,
+      #052555 50%,
+      #05255575 66%,
+      #ffffff 80%,
+      #ffffff 99%
+    )
+    left
+    bottom
+    #ffffff
+    no-repeat;
+  background-size:100% 5px ;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.outer h2 {
+text-align: center;
+}
+.outer p, .level2 {
+color: #000000;
+}
+.outer ol {
+padding-left: 8%;
+padding-right: 8%;
+text-align: left;
+}
+.main {
+width: 36in;
+height: calc(48in * 0.3);
+position: absolute;
+background-color: #052555;
+color: #ffffff90;
+font-family: Special Elite;
+background-image: linear-gradient(#052555 50%,#052596);
+}
+.main strong {
+color: #ffffff;
+}
+.main strong > sup {
+color: #ffffff;
+}
+.main sup {
+color: #ffffff90;
+}
+#main-img-left {
+width: 10%;
+left: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+#main-img-center {
+width: 10%;
+left: calc(36in * 0.45);
+bottom: 0.5in;
+position: absolute;
+}
+#main-img-right {
+width: 10%;
+right: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+.main p {
+font-size: 200px;
+font-family: Special Elite;
+text-align: center;
+margin: 0;
+position: absolute;
+top: 50%;
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+margin-left: 1em;
+}
+.fab {
+color: #00000030;
+font-size: 25px;
+}
+.twitter, i {
+color: #00000030;
+font-size: 35px;
+text-decoration: none;
+}
+a.email {
+text-decoration: none;
+color: #00000030;
+font-size: 35px;
+}
+.envelope {
+color: #00000030;
+font-size: 5px;
+text-decoration: none;
+}
+.poster_wrap {
+width: 36in;
+height: 48in;
+padding: 0cm;
+}
+.main_bottom {
+width: 36in;
+height: calc(48in * 0.1);
+margin-top: calc(48in * (1 - 0.1));
+position: absolute;
+background-color: #052555;
+background-image: linear-gradient(#052596 10%, #052555);
+}
+.section {
+  padding-left: 10mm;
+  padding-right: 10mm;
+}
+span > #tab:mytable {
+  font-weight: bold;
+}
+.orcid img {
+  width: 3%;
+}
+.emphasis {
+  background-color: #008080;
+  color: #ffffff;
+  border: solid #0b2045 3mm;
+  margin: 1em;
+  padding-left: 0;
+  padding-right: 0;
+}
+.emphasis h1 {
+  font-weight: bold;
+  background: none;
+  background-color: #0b2045;
+  padding-bottom: 5mm;
+  padding-top: 1mm;
+  margin-top: -1mm;
+  margin-right: -1mm;
+  margin-left: -1mm;
+}
+.emphasis blockquote {
+  border: 0;
+}
+.emphasis ol {
+  padding: 0;
+  padding-left: 8%;
+  font-size: 100%;
+  font-weight: bold;
+}
+.emphasis p {
+  color: #ffffff;
+}
+</style>
+</head>
+<body>
+
+
+<div class="poster_wrap">
+
+<div class="column outer">
+<div class="section">
+<h1 id="title"><strong>Комбинированная навигация сельскохозяйственной техники</strong></h1><br>
+<h3 id="author" class="author">
+
+Генералова А.А.<sup> 1</sup><br>
+
+<a class='envelope'><i class="fas fa-envelope"></i></a> <a href="mailto:tm@pnzgu.ru" class="email">tm@pnzgu.ru</a> <br>
+    Киреев С.Ю.<sup> 1</sup><br>
+
+<a class='envelope'><i class="fas fa-envelope"></i></a> <a href="mailto:dit@pnzgu.ru" class="email">dit@pnzgu.ru</a> <br>
+</h3>
+
+<h5 id="author_extra", class="author_extra">
+ Бычков Д.С.<sup>1</sup>
+ Никулин А.А.<sup>1</sup>
+ Генералов К.А.<sup>1</sup>
+ </h5>
+
+
+<p id="affiliation" class="affiliation">
+<sup>1</sup> ФГБОУ ВО «ПГУ»<br> <sup>2</sup> ООО НПФ «КРУГ»
+</p>
+</div>
+
+<div id="возможности" class="section level1">
+<h1>Возможности</h1>
+<ul>
+<li><p>комплектация, как уже разработанных и эксплуатируемых видов техники, так и вновь проектируемых</p></li>
+<li><p>повышение потребительских свойств коммерческого и некоммерческого грузового транспорта</p></li>
+</ul>
+</div>
+<div id="характеристики" class="section level1">
+<h1>Характеристики</h1>
+<ul>
+<li>Напряжение питания <strong>10-30 В</strong></li>
+<li>Рабочая температура <strong>-10°~ +50°</strong></li>
+<li>Вес конструкции <strong>до 7 кг</strong></li>
+<li>Максимальное усилие на валу электродвигателя подруливающего устройства <strong>не менее 20 Нм</strong></li>
+<li>Точность проведения сельскохозяйственных операций <strong>~0.10 м</strong></li>
+<li>Размеры устройства <strong>до 250х250х250 мм</strong></li>
+<li>Масса <strong>до 3 кг</strong></li>
+<li>Входной ток <strong>до 7 А</strong></li>
+<li>Входное напряжение <strong>до 30 В</strong></li>
+<li>Тип дисплея <strong>сенсорный TFT дисплей</strong></li>
+<li>Разрешение дисплея <strong>до 12’’</strong></li>
+</ul>
+<p><img src="fig/image2_1.png" width="70%" style="display: block; margin: auto;" /><img src="fig/image2_2.png" width="70%" style="display: block; margin: auto;" /></p>
+<div id="рис.-1---визуализация-работы-для-интерфейса-пользователя" class="section level5">
+<h5>Рис. 1 - Визуализация работы для интерфейса пользователя</h5>
+<p><img src="fig/image1_1.png" width="70%" style="display: block; margin: auto;" /><img src="fig/image1_2.png" width="70%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="рис.-2---определение-границы-обработанного-участка" class="section level5">
+<h5>Рис. 2 - Определение границы обработанного участка</h5>
+</div>
+</div>
+<div id="применение" class="section level1">
+<h1>Применение</h1>
+<p>Системы управления наземными беспилотными объектами</p>
+</div>
+<div id="комплект" class="section level1">
+<h1>Комплект</h1>
+<ul>
+<li>Спутниковая навигация</li>
+<li>Инерциальная навигация автотракторной техники</li>
+<li>Подруливающее устройство</li>
+<li>Графический интерфейс пользователя</li>
+</ul>
+</div>
+
+</div>
+<div class="main">
+<p><strong>НОЦ «Инженерия будущего»</strong> - это научно-образовательный центр, призванный объединить науку и реальный сектор экономики</p>
+</div>
+<div class="main_bottom">
+<img id="main-img-left" src=fig/noc.png>
+<img id="main-img-center" src=>
+<img id="main-img-right" src=fig/LogPGU_simbioz2013_new2bel_bukv_3.png>
+</div>
+</div>
+
+
+
+</body>
+</html>
